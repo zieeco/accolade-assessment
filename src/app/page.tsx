@@ -9,7 +9,7 @@ export default function Home() {
 	const {countries, loading, error, setSearchTerm} = useCountries();
 
 	return (
-		<main className="container mx-auto px-4 py-8">
+		<main className="container mx-auto px-4 py-8 lg:px-40">
 			<h1 className="text-4xl font-bold mb-8 text-center">Country Explorer</h1>
 			<SearchBar onSearch={setSearchTerm} />
 
