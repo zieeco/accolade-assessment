@@ -1,5 +1,6 @@
 'use client';
 
+import {useState} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -15,7 +16,6 @@ import {Skeleton} from '@/components/ui/skeleton';
 import {Alert, AlertDescription, AlertTitle} from '@/components/ui/alert';
 import {AlertCircle, ArrowUpDown} from 'lucide-react';
 import {CountryTableData} from '@/types/country';
-import {useState} from 'react';
 
 interface CountryTableProps {
 	countries: CountryTableData[];
@@ -29,6 +29,7 @@ type SortOrder = 'asc' | 'desc';
 export function CountryTable({countries, isLoading, error}: CountryTableProps) {
 	const [sortKey, setSortKey] = useState<SortKey>('name');
 	const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
+
 	if (error) {
 		return (
 			<Alert variant="destructive">
@@ -39,15 +40,14 @@ export function CountryTable({countries, isLoading, error}: CountryTableProps) {
 		);
 	}
 
-	if (isLoading) {
-		return (
-			<div className="space-y-4">
-				{[...Array(5)].map((_, i) => (
-					<Skeleton key={i} className="h-12 w-full" />
-				))}
-			</div>
-		);
-	}
+	const handleSort = (key: SortKey) => {
+		if (sortKey === key) {
+			setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+		} else {
+			setSortKey(key);
+			setSortOrder('asc');
+		}
+	};
 
 	const sortedCountries = [...countries].sort((a, b) => {
 		let compareA: string | number;
@@ -80,14 +80,15 @@ export function CountryTable({countries, isLoading, error}: CountryTableProps) {
 		return compareB.toString().localeCompare(compareA.toString());
 	});
 
-	const handleSort = (key: SortKey) => {
-		if (sortKey === key) {
-			setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-		} else {
-			setSortKey(key);
-			setSortOrder('asc');
-		}
-	};
+	if (isLoading) {
+		return (
+			<div className="space-y-4">
+				{[...Array(5)].map((_, i) => (
+					<Skeleton key={i} className="h-12 w-full" />
+				))}
+			</div>
+		);
+	}
 
 	return (
 		<Table>
@@ -130,6 +131,7 @@ export function CountryTable({countries, isLoading, error}: CountryTableProps) {
 							<ArrowUpDown className="ml-2 h-4 w-4" />
 						</Button>
 					</TableHead>
+					<TableHead>Actions</TableHead>
 				</TableRow>
 			</TableHeader>
 			<TableBody>
@@ -140,21 +142,28 @@ export function CountryTable({countries, isLoading, error}: CountryTableProps) {
 								src={country.flags.svg}
 								alt={country.flags.alt || `Flag of ${country.name.common}`}
 								width={30}
-								height={30}
+								height={20}
 								className="rounded shadow-sm"
 							/>
 						</TableCell>
 						<TableCell>
 							<Link
-								href={`/country/${country.cca3}`}
-								className="text-blue-600 hover:text-blues-800 dark:text-blue-400
-                dark:hover:text-blue-200">
+								href={`/country/${encodeURIComponent(country.cca3)}`}
+								className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200">
 								{country.name.common}
 							</Link>
 						</TableCell>
 						<TableCell>{country.capital?.[0] || 'N/A'}</TableCell>
 						<TableCell>{country.region}</TableCell>
 						<TableCell>{country.population.toLocaleString()}</TableCell>
+						<TableCell>
+							<Link
+								href={`/compare?country1=${encodeURIComponent(country.cca3)}`}>
+								<Button variant="outline" size="sm">
+									Compare
+								</Button>
+							</Link>
+						</TableCell>
 					</TableRow>
 				))}
 			</TableBody>
