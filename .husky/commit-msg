@@ -1,0 +1,3 @@
+echo "Husky commit-msg hook triggered"
+
+npx --no -- commitlint --edit $1
