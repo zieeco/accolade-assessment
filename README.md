@@ -59,7 +59,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](#)
+- [Live Demo Link](https://accolade-assessment.netlify.app/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
