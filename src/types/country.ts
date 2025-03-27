@@ -1,4 +1,8 @@
 export interface Country {
+	states: {
+		name: string;
+		code: string;
+	}[];
 	name: {
 		common: string;
 		official: string;
