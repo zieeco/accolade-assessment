@@ -1,30 +1,10 @@
 'use client';
 
 import {useQuery} from '@apollo/client';
-import {GET_COUNTRIES} from '../graphql/queries';
-import {Country} from '@/types/country';
-import {useState} from 'react';
+import {GET_COUNTRY} from '@/graphql/queries';
 
-export function useCountries() {
-	const [searchTerm, setSearchTerm] = useState('');
-	const {data, error, loading} = useQuery<{countries: Country[]}>(
-		GET_COUNTRIES
-	);
+export function useCountry(name: string) {
+	const {data, ...rest} = useQuery(GET_COUNTRY, {variables: {name}});
 
-	const filteredCountries = data?.countries.filter((country) => {
-		const searchLower = searchTerm.toLowerCase();
-		return (
-			country.name.common.toLowerCase().includes(searchLower) ||
-			(country.capital?.[0]?.toLowerCase().includes(searchLower) ?? false) ||
-			(country.region?.toLowerCase().includes(searchLower) ?? false)
-		);
-	});
-
-	return {
-		countries: filteredCountries ?? [],
-		loading,
-		error,
-		searchTerm,
-		setSearchTerm,
-	};
+	return {data: {country: data?.countries?.[0]}, ...rest};
 }
