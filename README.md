@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<a name="readme-top"></a>
 
-## Getting Started
+<div align="center">
+  <h3><b>Country Explorer</b></h3>
+</div>
 
-First, run the development server:
+# 📗 Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Country Explorer ](#-country-explorer-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
+
+# 📖 Country Explorer <a name="about-project"></a>
+
+**Country Explorer** is a Next.js application that fetches and displays country data using the REST Countries API. Users can search for countries, view detailed information, and compare key statistics.
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://nextjs.org/">Next.js</a></li>
+    <li><a href="https://www.apollographql.com/docs/react/">Apollo Client</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li>REST Countries API</li>
+  </ul>
+</details>
+
+### Key Features <a name="key-features"></a>
+
+- **Fetch and display a list of countries**
+- **Search functionality with real-time updates**
+- **Country comparison based on population, area, and GDP**
+- **Dynamic country details page (Pending implementation)**
+- **Error handling and loading states**
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](#)
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project, you need:
+- Node.js installed
+- Git installed
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  git clone https://github.com/zieeco/accolade-assessment.git
+  cd accolade-assessment
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Install dependencies with:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+  npm install
+```
 
-## Learn More
+### Usage
 
-To learn more about Next.js, take a look at the following resources:
+To run the project, execute the following command:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Run tests
 
-## Deploy on Vercel
+To run tests, run the following command:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+  npm test
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Deployment
+
+You can deploy this project using Vercel or Netlify.
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Isaac Imaobong Samuel**
+
+- Github: [@zieeco](https://github.com/zieeco)
+- Twitter: [@zieecodes](https://twitter.com/zieecodes)
+- LinkedIn: [Isaac Imaobong Samuel](https://www.linkedin.com/in/isaac-imaobong-samuel/)
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Complete country details page implementation**
+- [ ] **Enhanced UI for country comparison**
+- [ ] **Additional sorting and filtering options**
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project, please give it a ⭐️!
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank the open-source community for their amazing contributions.
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./MIT.md) licensedlicensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
