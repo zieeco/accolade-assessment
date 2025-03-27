@@ -74,7 +74,7 @@ export default function CompareCountries() {
 				</div>
 			</div>
 			{loading ? (
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:px-48">
 					<Skeleton className="h-[300px]" />
 					<Skeleton className="h-[300px]" />
 				</div>
